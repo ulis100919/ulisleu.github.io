@@ -1,5 +1,5 @@
 .banner {
-    background: url(/IMG/tes.jpg) no-repeat center;
+    background: url("https://p4.wallpaperbetter.com/wallpaper/213/774/552/workspace-computer-wallpaper-preview.jpg") no-repeat center;
     background-size: cover;
     padding-top: 20% ;
     padding-bottom: 20%;
@@ -39,7 +39,7 @@ a.sosial  {
     max-height: 50px;
 }
 .kontak{
-    background: url(/IMG/kontak.jpg) no-repeat center center;
+    background: url('https://images6.alphacoders.com/481/481285.jpg') no-repeat center center;
     background-size: cover;
     padding-bottom: 20%;
     padding-top: 20%;
