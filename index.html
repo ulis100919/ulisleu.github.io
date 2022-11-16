@@ -239,25 +239,68 @@
       <div class="container">
         <h2 class="display-3 text-center" id="kontak">Kontak Kami</h2>
         <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, iste?</p>
+        <div class="row">
+          <!-- Alert -->
+        <div class="col-md-4"></div>
+            <div class="alert alert-success alert-dismissible fade show col-md-4 d-none my-alert" role="alert">
+              <strong>Terimah Kasih!</strong> Pesan Anda Telah Di Kirim
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>  
+        <!-- Akhir Alert -->
         <div class="row pb-3">
           <div class="col-md-6">
-            <input type="text" class="form-control form-control-lg mb-3" placeholder="Nama">
-            <input type="email" class="form-control form-control-lg mb-3" placeholder="Email">
-            <input type="number" class="form-control form-control-lg mb-3" placeholder="Phone">
-          </div>
-          <div class="col-md-6">
-            <textarea name="" class="form-control form-control-lg" rows="5"></textarea>
-          </div>
-        </div>
-        <div class="col-md-3 mx-auto text-center">
-          <button type="button" class="btn btn-danger btn-lg">Kirim Pesan</button>
-        </div>
+            <form name="web-page-contact">
+                  <input type="text" class="form-control form-control-lg mb-3" placeholder="Nama" name="nama" required>
+                  <input type="email" class="form-control form-control-lg mb-3" placeholder="Email" name="email" required>
+                  <input type="number" class="form-control form-control-lg mb-3" placeholder="Phone" name="phone" required>
+                </div>
+                <div class="col-md-6">
+                  <textarea name="pesan" class="form-control form-control-lg" required rows="5"></textarea>
+                </div>
+              </div>
+              <div class="col-md-3 mx-auto text-center">
+                <button type="submit" class="btn btn-danger btn-kirim btn-lg">Kirim Pesan</button>
+                <button class="btn btn-danger btn-lg btn-loading d-none" type="button" disabled>
+                  <span class="spinner-border spinner-border-sm " role="status" aria-hidden="true"></span>
+                  Loading...
+                </button>
+              </div>
+            </form>
       </div>
     </div>
     <div class="container text-center pt-3 pb-3">All Rights Reserved &copy; 2022</div>
     <!-- Akhir Kontak -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxqaxEJNf1bu-dS_SQDDd9b4oCyoFjWD48eNvCGFq3_6wjdx1yFJnwfaFtSV-fxL5kZ/exec'
+      const form = document.forms['web-page-contact'];
+      const btnKirim = document.querySelector('.btn-kirim');
+      const btnLoading = document.querySelector('.btn-loading');
+      const myAlert = document.querySelector('.my-alert');
+
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        // ketika tombol submit di klik
+        // tampilkan tombol loading hilangkan tombol kirim
+        btnLoading.classList.toggle('d-none');
+        btnKirim.classList.toggle('d-none');
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            // tampilkan tombol kirim hilangkan tombol loading
+            btnLoading.classList.toggle('d-none');
+            btnKirim.classList.toggle('d-none');
+            // tampilkan alert 
+            myAlert.classList.toggle('d-none');
+            // reset form
+            form.reset();
+            console.log('Success!', response)
+        })
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
