@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap/css/css.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/css.css">
 
     <!-- AOS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -17,7 +18,7 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg fixed-top mr-4">
       <div class="container">
         <a class="navbar-brand" href="#">Ulis Leuwol</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,8 +51,9 @@
     <div class="container-fluid banner">
       <div class="container text-center">
         <h4 class="display-6"> <strong>Selamat Datang Di Website Saya</strong> </h4>
+        <p ><h4 class="nama"></h4></p>
         <a href="#layanan">
-          <button type="button" class="btn btn-danger btn-lg">Cek Layanan</button>
+          <button type="button" class="btn btn-danger btn-lg animasi">Cek Layanan</button>
         </a>
       </div>
     </div>
@@ -325,6 +327,18 @@
       });
 
       AOS.init();
+    </script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/TextPlugin.min.js"></script>
+
+    <script>
+      gsap.registerPlugin(TextPlugin);
+      gsap.to('.nama', {duration: 2, delay: 1.2, text: 'By : Ulis Leuwol'});
+      gsap.from('.display-6', {duration: 1, x:-50, opacity: 0, delay: 0.5, ease : "back"});
+      gsap.from('.navbar', {duration:1.5, y: '-100%', opacity: 0, ease : "bounce.out"});
+      gsap.from('.animasi', {duration: 4, delay:2, x: -50, opacity: 0, ease: 'elastic.out(1, 0.3)'});
     </script>
 
     <!-- Perintah form contact -->

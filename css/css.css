@@ -12,7 +12,7 @@
     margin: auto;
     height: 150px;
     color: #fff;
-    background-color: #dc3545;
+    background-color: #15ff00;
 }
 .lingkaran i {
     position: relative;
@@ -36,7 +36,7 @@ a.sosial  {
 }
 .client img {
     height: auto;
-    max-height: 50px;
+    max-height: 50px
 }
 .kontak{
     background: url('https://images6.alphacoders.com/481/481285.jpg') no-repeat center center;
